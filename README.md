@@ -5,7 +5,7 @@ Autori:
 - [Adam Koutný](https://github.com/AdamRaccoon)
 
 ## Úloha
-:TODO
+Create a module that smoothly changes LED brightness by generating a triangle waveform for the PWM duty cycle, simulating “inhale” and “exhale.”
 
 ## Blokový diagram
 :TODO
