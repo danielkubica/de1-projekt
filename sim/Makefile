@@ -1,5 +1,5 @@
 GHDL = ghdl
-TOP  = counter_tb
+TOP  = tb_seg_decoder
 BUILD_DIR = build
 
 all:
