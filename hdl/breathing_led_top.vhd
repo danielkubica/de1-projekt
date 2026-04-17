@@ -17,6 +17,7 @@ architecture Behavioral of breathing_led_top is
 
     signal i_breathing_led      : std_logic;        
     signal i_progress_bar       : std_logic_vector(15 downto 0);
+    signal i_stars              : std_logic_vector(15 downto 0);
 
     component breathing_pwm is
         port (
@@ -34,13 +35,20 @@ architecture Behavioral of breathing_led_top is
         );
     end component;
 
+    component stars is
+        port (
+            clk                     : in  std_logic;
+            led                     : out std_logic_vector(15 downto 0)
+        );
+    end component;
+
     component mux is
         port (
             mode                : in std_logic_vector(2 downto 0);
             breathing_led       : in std_logic; 
             progress_bar        : in std_logic_vector(15 downto 0);
             -- pyramid             : in std_logic_vector(15 downto 0);
-            -- stars               : in std_logic_vector(15 downto 0);
+            stars               : in std_logic_vector(15 downto 0);
             mux_output          : out std_logic_vector(15 downto 0)
         );
     end component;
@@ -64,11 +72,18 @@ begin
             led             => i_progress_bar
         );
 
+    stars1 : stars
+        port map (
+            clk             => clk,
+            led             => i_stars
+        );
+
     mux1 : mux
         port map (
             mode            => mode_sw,
             breathing_led   => i_breathing_led,
             progress_bar    => i_progress_bar,
+            stars           => i_stars,
             mux_output      => led
         );
      

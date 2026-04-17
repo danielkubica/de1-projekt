@@ -1,5 +1,5 @@
 GHDL = ghdl
-TOP  = tb_progress_bar
+TOP  = tb_stars
 BUILD_DIR = build
 
 all:
