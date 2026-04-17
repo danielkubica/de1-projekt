@@ -18,6 +18,7 @@ Cílem tohoto projektu je vytvořit vizuální efekt „dýchání“ implemento
 * **Nastavitelná rychlost:** Pomocí dvou přepínačů (switches) lze měnit čas nádychu od 1s až po 8s.
 * **Vizuální zpětná vazba:** Aktuálně zvolený čas nádychu je v reálném čase zobrazován na sedmisegmentovém displeji.
 - **Ďaľšie módy (:TODO)**
+
 ---
 
 ### Ovládání a parametry:
