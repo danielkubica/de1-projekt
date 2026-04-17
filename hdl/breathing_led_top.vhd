@@ -18,27 +18,36 @@ architecture Behavioral of breathing_led_top is
     signal i_breathing_led      : std_logic;        
     signal i_progress_bar       : std_logic_vector(15 downto 0);
     signal i_stars              : std_logic_vector(15 downto 0);
+    signal i_pyramid            : std_logic_vector(15 downto 0);
 
     component breathing_pwm is
         port (
         clk                     : in  std_logic;
         inhale_time             : in unsigned(2 downto 0); 
-        pwm_signal : out std_logic := '0'
+        pwm_signal              : out std_logic := '0'
         );
     end component;
 
     component progress_bar is
         port (
-            clk          : in  std_logic;
-            inhale_time  : in  unsigned(2 downto 0);
-            led          : out std_logic_vector(15 downto 0)
+            clk                 : in  std_logic;
+            inhale_time         : in  unsigned(2 downto 0);
+            led                 : out std_logic_vector(15 downto 0)
         );
     end component;
 
     component stars is
         port (
-            clk                     : in  std_logic;
-            led                     : out std_logic_vector(15 downto 0)
+            clk                 : in  std_logic;
+            led                 : out std_logic_vector(15 downto 0)
+        );
+    end component;
+
+    component pyramid is
+        port (
+            clk                 : in std_logic;            
+            inhale_time         : in  unsigned(2 downto 0);
+            led                 : out std_logic_vector(15 downto 0)
         );
     end component;
 
@@ -47,7 +56,7 @@ architecture Behavioral of breathing_led_top is
             mode                : in std_logic_vector(2 downto 0);
             breathing_led       : in std_logic; 
             progress_bar        : in std_logic_vector(15 downto 0);
-            -- pyramid             : in std_logic_vector(15 downto 0);
+            pyramid             : in std_logic_vector(15 downto 0);
             stars               : in std_logic_vector(15 downto 0);
             mux_output          : out std_logic_vector(15 downto 0)
         );
@@ -71,6 +80,13 @@ begin
             inhale_time     => unsigned(inhale_time_sw),
             led             => i_progress_bar
         );
+    
+    pyramid1 : pyramid
+        port map (
+            clk             => clk,
+            inhale_time     => unsigned(inhale_time_sw),
+            led             => i_pyramid
+        );
 
     stars1 : stars
         port map (
@@ -83,6 +99,7 @@ begin
             mode            => mode_sw,
             breathing_led   => i_breathing_led,
             progress_bar    => i_progress_bar,
+            pyramid         => i_pyramid,
             stars           => i_stars,
             mux_output      => led
         );

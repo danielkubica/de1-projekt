@@ -8,7 +8,7 @@ entity breathing_pwm is
     port (
         clk                     : in  std_logic;
         inhale_time             : in unsigned(2 downto 0); -- 3bit, maximalny inhale_time 8 sekund     
-        pwm_signal : out std_logic := '0'
+        pwm_signal              : out std_logic := '0'
     );
 end entity breathing_pwm;
 
@@ -28,7 +28,7 @@ begin
     begin        
         if rising_edge(clk) then
             v_cycles := to_integer(inhale_time) * CLOCK_FREQ;
-            cycles   <= v_cycles;
+            cycles <= v_cycles;
             light_level_period <= v_cycles / TOTAL_LIGHT_LEVELS;
 
             if inhale_time = b"000" then

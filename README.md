@@ -64,13 +64,22 @@ Linux:
 
 ## Simulácie
 Simulácia konštantného PWM signálu
-![constant_pwm_view](/img/constant_pwm_view.png)
+![constant_pwm_view](/img/signal_views_imgs/constant_pwm_view.png)
 
-Simulácia premenného PWM signálu
-![breathing_pwm_view](/img/breathing_pwm_view.png)
+Simulácia módu "Dýchajúca LED" (premenný PWM signál)
+![breathing_pwm_view](/img/signal_views_imgs/breathing_pwm_view.png)
 
-Simulácia módu "progress bar" nádych/výdych
-![breathing_leds_view](/img/breath_leds_view.png)
+Simulácia módu "Progress bar"
+![progress_bar_view](/img/signal_views_imgs/progress_bar_view.png)
+
+Simulácia módu "Pyramída"
+![pyramid_view](/img/signal_views_imgs/pyramid_view.png)
+
+Simulácia módu "Hviezdy"
+![stars_view](/img/signal_views_imgs/stars_view.png)
+
+Simulácia top level entity breathing_led_top
+![top_level_view](/img/signal_views_imgs/top_level_view.png)
 
 ## Poster, atď
 :TODO

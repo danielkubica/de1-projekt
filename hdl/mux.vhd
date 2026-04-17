@@ -7,7 +7,7 @@ entity mux is
         mode                : in std_logic_vector(2 downto 0);
         breathing_led       : in std_logic; 
         progress_bar        : in std_logic_vector(15 downto 0);
-        -- pyramid             : in std_logic_vector(15 downto 0);
+        pyramid             : in std_logic_vector(15 downto 0);
         stars               : in std_logic_vector(15 downto 0);
         mux_output          : out std_logic_vector(15 downto 0)
     );
@@ -24,8 +24,9 @@ begin
             when b"001" =>
                 mux_output <= progress_bar;
             when b"010" =>
+                mux_output <= pyramid;
+            when b"011" =>
                 mux_output <= stars;
-            -- when b"011" =>
             -- when b"100" =>
             -- when b"101" =>
             -- when b"110" =>

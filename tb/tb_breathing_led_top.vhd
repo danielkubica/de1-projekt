@@ -64,19 +64,25 @@ begin
         sw <= (others => '0');        -- Reset switchov, vsetko na nule
         wait for 10_000 * TbPeriod;
 
-        sw <= b"0000_0000_0000_0001"; -- 1. mod "Dychajuca LEDka" s 1s nadych
+        sw <= b"0000_0000_0000_0001"; -- 0. mod "Dychajuca LEDka" 1s nadych
         wait for 50_000 * TbPeriod;
 
-        sw <= b"0000_0000_0000_0010"; -- 1. mod "Dychajuca LEDka" s 2s nadych
+        sw <= b"0000_0000_0000_0010"; -- 0. mod "Dychajuca LEDka" 2s nadych
         wait for 50_000 * TbPeriod;
 
-        sw <= b"0010_0000_0000_0001"; -- 2. mod "Progress bar" s 1s nadych
+        sw <= b"0010_0000_0000_0001"; -- 1. mod "Progress bar" 1s nadych
         wait for 50_000 * TbPeriod;
 
-        sw <= b"0010_0000_0000_0010"; -- 2. mod "Progress bar" s 2s nadych
+        sw <= b"0010_0000_0000_0010"; -- 1. mod "Progress bar" 2s nadych
         wait for 50_000 * TbPeriod;
 
-        sw <= b"0100_0000_0000_0001"; -- 3. mod "Hviezdy"
+        sw <= b"0100_0000_0000_0001"; -- 2. mod "Pyramida" 1s nadych
+        wait for 50_000 * TbPeriod;
+
+        sw <= b"0100_0000_0000_0010"; -- 2. mod "Pyramida" 2s nadych
+        wait for 50_000 * TbPeriod;
+
+        sw <= b"0110_0000_0000_0001"; -- 3. mod "Hviezdy"
         wait for 50_000 * TbPeriod;
 
         -- Stop the clock and hence terminate the simulation
