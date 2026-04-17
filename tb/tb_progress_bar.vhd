@@ -2,10 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity tb_breath_leds is
-end entity tb_breath_leds;
+entity tb_progress_bar is
+end entity tb_progress_bar;
 
-architecture testbench of tb_breath_leds is
+architecture testbench of tb_progress_bar is
     signal clk          : std_logic := '0';
     signal rst          : std_logic := '0';
     signal led_bus      : std_logic_vector(15 downto 0);
@@ -39,22 +39,21 @@ begin
     led14  <= led_bus(14);
     led15 <= led_bus(15);
 
-    uut: entity work.breath_leds
+    uut: entity work.progress_bar
         port map (
             clk          => clk,
-            rst          => rst,
-            inhale_time  => inhale_val, -- Give it a realistic value
+            inhale_time  => inhale_val,
             led          => led_bus
         );
 
     p_stim : process
     begin
-        rst <= '1';
-        wait for 100 ns;
-        rst <= '0';
+        inhale_val <= b"000";
+        wait for 2 ns;
+        inhale_val <= b"001";
         
         -- Wait long enough to see at least a few LEDs turn on
-        wait for 2 ms; 
+        wait for 4 ms; 
         run_sim <= false;
         wait;
     end process;

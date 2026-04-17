@@ -1,5 +1,5 @@
 GHDL = ghdl
-TOP  = tb_seg_decoder
+TOP  = tb_progress_bar
 BUILD_DIR = build
 
 all:
@@ -9,7 +9,7 @@ all:
 	$(GHDL) -r  --workdir=$(BUILD_DIR) $(TOP) --vcd=./$(BUILD_DIR)/result.vcd
 
 view:
-	gtkwave ./$(BUILD_DIR)/result.vcd
+	gtkwave ./$(BUILD_DIR)/result.vcd ./gtkwave-signals-templates/$(TOP).sav
 
 clean:
 	rm -rf $(BUILD_DIR)

@@ -7,18 +7,17 @@ use ieee.numeric_std.all;
 entity breathing_pwm is
     port (
         clk                     : in  std_logic;
-        rst                     : in std_logic;
         inhale_time             : in unsigned(2 downto 0); -- 3bit, maximalny inhale_time 8 sekund     
         pwm_signal : out std_logic := '0'
     );
 end entity breathing_pwm;
 
 architecture behavioral of breathing_pwm is
-    constant CLOCK_FREQ          : integer := 1000; -- treba zmenit na 100_000_000 pre FPGAcko
+    constant CLOCK_FREQ          : integer := 10_000; -- treba zmenit na 100_000_000 pre FPGAcko
     constant TOTAL_LIGHT_LEVELS  : integer := 64; 
 
     signal cycles                : integer := 0;
-    signal light_level_period    : integer := 0; -- 1_562_500 pre 64 levlov
+    signal light_level_period    : integer := 0; -- 1_562_500 pre 64 levlov a 1s nadych
     signal current_light_level   : unsigned(5 downto 0) := (others => '0');
     signal count                 : integer := 0;
     signal inhale                : std_logic := '1';
@@ -32,7 +31,7 @@ begin
             cycles   <= v_cycles;
             light_level_period <= v_cycles / TOTAL_LIGHT_LEVELS;
 
-            if rst = '1' then
+            if inhale_time = b"000" then
                 count <= 0;
                 pwm_signal <= '0';
                 current_light_level <= (others => '0');

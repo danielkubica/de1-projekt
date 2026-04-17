@@ -6,10 +6,11 @@ use ieee.numeric_std.all;
 
 entity constant_pwm is
     port (
-        clk        : in  std_logic;
-        rst        : in  std_logic;
-        duty       : in  std_logic_vector(7 downto 0);
-        pwm_signal : out std_logic
+        clk             : in    std_logic;
+        rst             : in    std_logic;
+        inhale_time     : in    unsigned(2 downto 0);
+        duty            : in    std_logic_vector(7 downto 0);
+        pwm_signal      : out   std_logic
     );
 end entity constant_pwm;
 
@@ -21,7 +22,7 @@ begin
     pwm_proc : process(clk)
     begin
         if rising_edge(clk) then
-            if rst = '1' then
+            if inhale_time = b"000" or rst = '1' then
                 counter    <= (others => '0');
                 pwm_signal <= '0';
             else

@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.126 (w)1999-2026 BSI
+[*] Fri Apr 17 12:43:58 2026
+[*]
+[dumpfile] "/home/daniel/Documents/school/4-semester/DE1/pwm-breathing-led/sim/build/result.vcd"
+[dumpfile_mtime] "Fri Apr 17 12:43:22 2026"
+[dumpfile_size] 105569025
+[savefile] "/home/daniel/Documents/school/4-semester/DE1/pwm-breathing-led/sim/gtkwave-signals-templates/tb_progress_bar.sav"
+[timestart] 0
+[size] 1920 988
+[pos] -46 -46
+*-38.947617 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 230
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 292
+@28
+tb_progress_bar.inhale_val[2:0]
+tb_progress_bar.led0
+tb_progress_bar.led1
+tb_progress_bar.led2
+tb_progress_bar.led3
+tb_progress_bar.led4
+tb_progress_bar.led5
+tb_progress_bar.led6
+tb_progress_bar.led7
+tb_progress_bar.led8
+tb_progress_bar.led9
+tb_progress_bar.led10
+tb_progress_bar.led11
+tb_progress_bar.led12
+tb_progress_bar.led13
+tb_progress_bar.led14
+tb_progress_bar.led15
+[pattern_trace] 1
+[pattern_trace] 0

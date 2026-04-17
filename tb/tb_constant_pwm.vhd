@@ -19,10 +19,11 @@ begin
     -- Instantiate the Unit Under Test (UUT)
     uut: entity work.constant_pwm
         port map (
-            clk   => clk,
-            rst => rst,
-            duty => duty,
-            pwm_signal => pwm_signal
+            clk             => clk,
+            rst             => rst,
+            inhale_time     => "001", 
+            duty            => duty,
+            pwm_signal      => pwm_signal
         );
 
     -- Stimulus process
