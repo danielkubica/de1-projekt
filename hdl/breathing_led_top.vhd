@@ -4,9 +4,11 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity breathing_led_top is
     Port ( 
-        clk                 : in std_logic;                     -- Hodinovy signal z dosky, 100MHz
-        sw                  : in std_logic_vector(15 downto 0); -- Vektor switchov na doske, v architekture ich mapujeme na interne signali, iba tie ktore potrebujeme
-        led                 : out std_logic_vector(15 downto 0) -- Vystupna rada LEDiek
+        clk                 : in std_logic;                      -- Hodinovy signal z dosky, 100MHz
+        sw                  : in std_logic_vector(15 downto 0);  -- Vektor switchov na doske, v architekture ich mapujeme na interne signali, iba tie ktore potrebujeme
+        led                 : out std_logic_vector(15 downto 0); -- Vystupna rada LEDiek
+        seg                 : out std_logic_vector(6 downto 0);
+        an                  : out std_logic_vector(7 downto 0)
     );
 end breathing_led_top;
 
@@ -19,6 +21,8 @@ architecture Behavioral of breathing_led_top is
     signal i_progress_bar       : std_logic_vector(15 downto 0);
     signal i_stars              : std_logic_vector(15 downto 0);
     signal i_pyramid            : std_logic_vector(15 downto 0);
+    signal i_mode_seg_decoder   : std_logic_vector(6 downto 0);
+    signal i_time_seg_decoder   : std_logic_vector(6 downto 0);
 
     component breathing_pwm is
         port (
@@ -48,6 +52,24 @@ architecture Behavioral of breathing_led_top is
             clk                 : in std_logic;            
             inhale_time         : in  unsigned(2 downto 0);
             led                 : out std_logic_vector(15 downto 0)
+        );
+    end component;
+
+    component seg_decoder is
+        port (
+            bin                 : in std_logic_vector(2 downto 0);
+            seg                 : out std_logic_vector(6 downto 0)
+        );
+    end component;
+
+    component display_driver is
+        port (
+            clk                 : in std_logic;
+            time_display        : in std_logic_vector(6 downto 0);
+            mode_display        : in std_logic_vector(6 downto 0);
+
+            seg_out             : out std_logic_vector(6 downto 0);
+            anode_out           : out std_logic_vector(7 downto 0)
         );
     end component;
 
@@ -92,6 +114,28 @@ begin
         port map (
             clk             => clk,
             led             => i_stars
+        );
+
+    mode_seg_decoder : seg_decoder
+        port map (
+            bin             => mode_sw,
+            seg             => i_mode_seg_decoder
+        );
+
+    time_seg_decoder : seg_decoder
+        port map (
+            bin             => inhale_time_sw,
+            seg             => i_time_seg_decoder 
+        );
+    
+    display_driver1 : display_driver
+        port map (
+            clk             => clk,
+            time_display    => i_time_seg_decoder, 
+            mode_display    => i_mode_seg_decoder,
+
+            seg_out         => seg, 
+            anode_out       => an 
         );
 
     mux1 : mux

@@ -14,10 +14,9 @@ Cílem tohoto projektu je vytvořit vizuální efekt „dýchání“ implemento
 ### Hlavní funkce projektu:
 
 * **Plynulé dýchání diod:** Jas LED diody se mění podle PWM signálu který napodobňuje trojuhelníkový signál, což simuluje přirozený cyklus nádechu a výdechu. Čas nádychu je nastavitelnej.
-- **Priestorový nádych/výdych:** Využíva radu 16 diod, ktoré sa postupne zapnú a vypnú tvoriac nádych a výdych. Niečo podobné "progress baru". Čas nádychu je nastaviteľný.
+- **Priestorový nádych/výdych:** Využíva radu 16 diod v štyroch módoch, ktoré rôznym spôsobom simulujú dýchanie.
 * **Nastavitelná rychlost:** Pomocí dvou přepínačů (switches) lze měnit čas nádychu od 1s až po 8s.
-* **Vizuální zpětná vazba:** Aktuálně zvolený čas nádychu je v reálném čase zobrazován na sedmisegmentovém displeji.
-- **Ďaľšie módy (:TODO)**
+* **Vizuální zpětná vazba:** Aktuálně zvolený čas nádychu a mód je v reálném čase zobrazován na sedmisegmentovém displeji.
 
 ---
 
@@ -27,35 +26,40 @@ Uživatelské rozhraní je navrženo pro maximální jednoduchost s využitím p
 
 | Prvek | Funkce | Popis |
 | :--- | :--- | :--- |
-| **Switches [M13, L16, J15]** | Nastavení rychlosti | 3-bitové číslo (0-7 + 1) určující rychlost cyklu. |
+| **Switches [M13, L16, J15]** | Nastavení rychlosti dýchaní | 3-bitové číslo (0-7 + 1) určující rychlost cyklu. |
 | **Switches [V10, V11, V12]** | Nastavení módu | 3-bitové číslo určující mód zobrazení dýchaní. |
 | **LED [15:0]** | Výstupní signál | Podle zadaného módu zobrazuje různé efekty dýchání. |
-| **7-seg displej** | Indikátor | Zobrazuje aktuální čas nádechu (1s, 2s, 3s atd.). |
+| **7-seg displej** | Indikátor | Zobrazuje aktuální čas nádechu (1s, 2s, 3s atd.) a mód (0 - 7). |
 
 ---
 
 ### Funkcie jednotlivých entít, detaily:
 
-- **Entitat constant_pwm:** Generuje konštantný PWM signál so zadanou veľkosťou (0 - 255bit číslo reprezentujúce 0 - 100%)
+- **Entitat constant_pwm:** Generuje konštantný PWM signál so zadanou veľkosťou striedy (0 - 255bit číslo reprezentujúce 0 - 100%)
 - **Entita breathing_pwm:** Generuje premenlivý PWM signál so zadaným časom nádychu, simulujúc nádych/výdych.
-- **Entita seg_decoder:** Dekóduje 3 bitové binárne číslo (čas nádychu), ktoré zobrazí na 7 segmentovom displaji. 
-* **Logika času:** Prepínače definujú čas (1-7s) nádychu/výdychu.
+- **Entita progress_bar:** Generuje "progress bar" efekt nádychu a výdychu so 16 LED diódami.
+- **Entita pyramid:** Generuje "pyramídový" efekt nádychu a výdychu so 16 LED diódami. 
+- **Entita stars:** Generuje "hviezdičkový" efekt 16 rôzne pulzujúcich LED diód. 
+- **Entita seg_decoder:** Dekóduje 3 bitové číslo (čas nádychu a mód), ktoré premení na 7 bitové číslo reprezentujúce číslo na 7 segmentovom displeji. 
+- **Entita display_driver:** Na "simultálne" zobrazenie dvoch rôznych čísel na doske Nexys A7 je treba čísla multiplexovať v správnom čase. O to sa stará táto entita.
+* **Logika času a nádychu:** Prepínače definujú čas (1-7s) nádychu/výdychu.
 * **Implementace:** Vytvořeno v jazyce VHDL pro FPGA Artix-7 (Nexys A7-50T/100T).
 
 ---
 
 ### Jak projekt zprovoznit:
+
+Windows/Vivao
 1. Použite predpripravený projek pre IDE **Xilinx Vivado** z Github repozitára.
 3. Proveďte syntézu, implementaci a generování bitstreamu.
 4. Nahrajte program do desky a pomocí prvních dvou switchů ovládejte rychlost.
 
-Linux:
+Linux/GHDL:
 1. Naklonovať github repozitár do nejakého priečinku.
-2. Nainštalovať si ghdl a GTKWave, mať ich v globálnej ceste.
+2. Nainštalovať si ghdl a GTKWave,a mať ich v globálnej ceste.
 3. Premiestniť sa (ak nainštalované do downloads, potom ``cd ~/Downloads/pwm-breathing-led/sim``) do sim priečinku.
 5. Upraviť V Makefile premennú TOP na meno testbenchu (napr. tb_breath_leds), ktorý chceme simulovať a vidieť jeho waveformu.
 4. V konzoli buildnúť projekt cez ``make`` a cez ``make view`` vidieť waveformy.
-
 
 ## Blokový diagram
 ![Blokový diagram dýchacích LED](/img/block_diagram.jpg)
