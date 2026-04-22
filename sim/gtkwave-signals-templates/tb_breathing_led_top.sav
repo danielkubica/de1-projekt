@@ -1,24 +1,23 @@
 [*]
-[*] GTKWave Analyzer v3.3.126 (w)1999-2026 BSI
-[*] Fri Apr 17 12:36:13 2026
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Sat Apr 18 20:03:30 2026
 [*]
-[dumpfile] "/home/daniel/Documents/school/4-semester/DE1/pwm-breathing-led/sim/build/result.vcd"
-[dumpfile_mtime] "Fri Apr 17 12:32:49 2026"
-[dumpfile_size] 61721398
-[savefile] "/home/daniel/Documents/school/4-semester/DE1/pwm-breathing-led/sim/gtkwave-signals-templates/tb_breathing_led_top.sav"
+[dumpfile] "/mnt/c/Users/Daniel/Documents/my-documents/school/4-semester/DE1/pwm-breathing-led/sim/build/result.vcd"
+[dumpfile_mtime] "Sat Apr 18 20:01:07 2026"
+[dumpfile_size] 336412388
+[savefile] "/mnt/c/Users/Daniel/Documents/my-documents/school/4-semester/DE1/pwm-breathing-led/sim/gtkwave-signals-templates/tb_breathing_led_top.sav"
 [timestart] 0
 [size] 1920 988
 [pos] -1 -1
-*-36.965435 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
-[sst_width] 230
-[signals_width] 94
+*-37.803284 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_breathing_led_top.
+[sst_width] 297
+[signals_width] 182
 [sst_expanded] 1
 [sst_vpaned_height] 292
 @28
 tb_breathing_led_top.clk
-@29
 tb_breathing_led_top.sw[15:0]
-@28
 tb_breathing_led_top.led0
 tb_breathing_led_top.led1
 tb_breathing_led_top.led2
@@ -35,5 +34,14 @@ tb_breathing_led_top.led12
 tb_breathing_led_top.led13
 tb_breathing_led_top.led14
 tb_breathing_led_top.led15
+@24
+[color] 2
+tb_breathing_led_top.dut.mode_sw[2:0]
+@25
+[color] 7
+tb_breathing_led_top.dut.inhale_time_sw[2:0]
+@22
+tb_breathing_led_top.dut.seg[6:0]
+tb_breathing_led_top.dut.sw[15:0]
 [pattern_trace] 1
 [pattern_trace] 0
