@@ -1,5 +1,5 @@
 GHDL = ghdl
-TOP  = tb_progress_bar
+TOP  = tb_breathing_led_top
 BUILD_DIR = build
 
 all:

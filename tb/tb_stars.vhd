@@ -1,38 +1,35 @@
 -- Testbench automatically generated online
 -- at https://vhdl.lapinoo.net
--- Generation date : Fri, 17 Apr 2026 11:26:22 GMT
--- Request id : cfwk-fed377c2-69e218dea5de9
+-- Generation date : Fri, 17 Apr 2026 13:54:19 GMT
+-- Request id : cfwk-fed377c2-69e23b8be4c62
 
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity tb_breathing_led_top is
-end tb_breathing_led_top;
+entity tb_stars is
+end tb_stars;
 
-architecture tb of tb_breathing_led_top is
+architecture tb of tb_stars is
 
-    component breathing_led_top
+    component stars
         port (clk : in std_logic;
-              sw  : in std_logic_vector (15 downto 0);
               led : out std_logic_vector (15 downto 0));
     end component;
 
     signal clk : std_logic;
-    signal sw  : std_logic_vector (15 downto 0);
     signal led : std_logic_vector (15 downto 0);
 
     constant TbPeriod : time := 5 ns; -- ***EDIT*** Put right period here
     signal TbClock : std_logic := '0';
     signal TbSimEnded : std_logic := '0';
-    
+
     signal led0, led1, led2, led3, led4, led5, led6, led7, led8   : std_logic;
     signal led9, led10, led11, led12, led13, led14, led15         : std_logic; 
 
 begin
 
-    dut : breathing_led_top
+    dut : stars
     port map (clk => clk,
-              sw  => sw,
               led => led);
 
     -- Break out the bus into individual signals
@@ -61,28 +58,9 @@ begin
 
     stimuli : process
     begin
-        sw <= (others => '0');        -- Reset switchov, vsetko na nule
-        wait for 10_000 * TbPeriod;
+        -- ***EDIT*** Adapt initialization as needed
 
-        sw <= b"0000_0000_0000_0001"; -- 0. mod "Dychajuca LEDka" 1s nadych
-        wait for 50_000 * TbPeriod;
-
-        sw <= b"0000_0000_0000_0010"; -- 0. mod "Dychajuca LEDka" 2s nadych
-        wait for 50_000 * TbPeriod;
-
-        sw <= b"0010_0000_0000_0001"; -- 1. mod "Progress bar" 1s nadych
-        wait for 50_000 * TbPeriod;
-
-        sw <= b"0010_0000_0000_0010"; -- 1. mod "Progress bar" 2s nadych
-        wait for 50_000 * TbPeriod;
-
-        sw <= b"0100_0000_0000_0001"; -- 2. mod "Pyramida" 1s nadych
-        wait for 50_000 * TbPeriod;
-
-        sw <= b"0100_0000_0000_0010"; -- 2. mod "Pyramida" 2s nadych
-        wait for 50_000 * TbPeriod;
-
-        sw <= b"0110_0000_0000_0001"; -- 3. mod "Hviezdy"
+        -- ***EDIT*** Add stimuli here
         wait for 50_000 * TbPeriod;
 
         -- Stop the clock and hence terminate the simulation
@@ -94,7 +72,7 @@ end tb;
 
 -- Configuration block below is required by some simulators. Usually no need to edit.
 
-configuration cfg_tb_breathing_led_top of tb_breathing_led_top is
+configuration cfg_tb_stars of tb_stars is
     for tb
     end for;
-end cfg_tb_breathing_led_top;
+end cfg_tb_stars;
