@@ -1,0 +1,28 @@
+[*]
+[*] GTKWave Analyzer v3.3.126 (w)1999-2026 BSI
+[*] Sat Apr 18 14:31:30 2026
+[*]
+[dumpfile] "/home/daniel/Documents/school/4-semester/DE1/pwm-breathing-led/sim/build/result.vcd"
+[dumpfile_mtime] "Sat Apr 18 14:28:59 2026"
+[dumpfile_size] 538917
+[savefile] "/home/daniel/Documents/school/4-semester/DE1/pwm-breathing-led/sim/gtkwave-signals-templates/tb_display_driver.sav"
+[timestart] 0
+[size] 1920 988
+[pos] -1 -1
+*-30.254660 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_display_driver.
+[sst_width] 230
+[signals_width] 178
+[sst_expanded] 1
+[sst_vpaned_height] 292
+@28
+tb_display_driver.dut.clk
+tb_display_driver.dut.display_state
+@24
+tb_display_driver.dut.mode_display[6:0]
+tb_display_driver.dut.time_display[6:0]
+tb_display_driver.dut.seg_out[6:0]
+@25
+tb_display_driver.dut.anode_out[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

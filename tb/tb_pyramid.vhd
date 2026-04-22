@@ -2,10 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity tb_progress_bar is
-end entity tb_progress_bar;
+entity tb_pyramid is
+end entity tb_pyramid;
 
-architecture testbench of tb_progress_bar is
+architecture testbench of tb_pyramid is
     signal clk          : std_logic := '0';
     signal rst          : std_logic := '0';
     signal led_bus      : std_logic_vector(15 downto 0);
@@ -39,7 +39,7 @@ begin
     led14  <= led_bus(14);
     led15 <= led_bus(15);
 
-    uut: entity work.progress_bar
+    uut: entity work.pyramid
         port map (
             clk          => clk,
             inhale_time  => inhale_val,

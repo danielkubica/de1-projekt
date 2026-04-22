@@ -1,0 +1,35 @@
+[*]
+[*] GTKWave Analyzer v3.3.126 (w)1999-2026 BSI
+[*] Fri Apr 17 14:03:46 2026
+[*]
+[dumpfile] "/home/daniel/Documents/school/4-semester/DE1/pwm-breathing-led/sim/build/result.vcd"
+[dumpfile_mtime] "Fri Apr 17 14:02:17 2026"
+[dumpfile_size] 17467821
+[savefile] "/home/daniel/Documents/school/4-semester/DE1/pwm-breathing-led/sim/gtkwave-signals-templates/tb_stars.sav"
+[timestart] 0
+[size] 1920 988
+[pos] -1 -1
+*-34.957211 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 230
+[signals_width] 160
+[sst_expanded] 1
+[sst_vpaned_height] 292
+@28
+tb_stars.led0
+tb_stars.led1
+tb_stars.led2
+tb_stars.led3
+tb_stars.led4
+tb_stars.led5
+tb_stars.led6
+tb_stars.led7
+tb_stars.led8
+tb_stars.led9
+tb_stars.led10
+tb_stars.led11
+tb_stars.led12
+tb_stars.led13
+tb_stars.led14
+tb_stars.led15
+[pattern_trace] 1
+[pattern_trace] 0
