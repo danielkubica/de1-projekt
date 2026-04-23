@@ -20,7 +20,7 @@ begin
     begin
         case mode is
             when b"000" =>
-                mux_output <= b"0000_0000_0000_000" & breathing_led;
+                mux_output <= (others => breathing_led);
             when b"001" =>
                 mux_output <= progress_bar;
             when b"010" =>
