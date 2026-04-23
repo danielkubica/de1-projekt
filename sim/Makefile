@@ -9,7 +9,7 @@ all:
 	$(GHDL) -r  --workdir=$(BUILD_DIR) $(TOP) --vcd=./$(BUILD_DIR)/result.vcd
 
 view:
-	gtkwave ./$(BUILD_DIR)/result.vcd ./gtkwave-signals-templates/$(TOP).sav
+	gtkwave -g ./$(BUILD_DIR)/result.vcd ./gtkwave-signals-templates/$(TOP).sav
 
 clean:
 	rm -rf $(BUILD_DIR)

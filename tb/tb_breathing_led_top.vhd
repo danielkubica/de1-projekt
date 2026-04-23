@@ -12,14 +12,20 @@ end tb_breathing_led_top;
 architecture tb of tb_breathing_led_top is
 
     component breathing_led_top
-        port (clk : in std_logic;
-              sw  : in std_logic_vector (15 downto 0);
-              led : out std_logic_vector (15 downto 0));
+        port (
+            clk : in std_logic;
+            sw  : in std_logic_vector (15 downto 0);
+            led : out std_logic_vector (15 downto 0);
+            seg : out std_logic_vector (6 downto 0);
+            an  : out std_logic_vector (7 downto 0)
+        );
     end component;
 
-    signal clk : std_logic;
-    signal sw  : std_logic_vector (15 downto 0);
-    signal led : std_logic_vector (15 downto 0);
+    signal clk : std_logic := '0';
+    signal sw  : std_logic_vector (15 downto 0) := (others => '0');
+    signal led : std_logic_vector (15 downto 0) := (others => '0');
+    signal seg : std_logic_vector(6 downto 0) := (others => '0');
+    signal an  : std_logic_vector(7 downto 0) := (others => '0');
 
     constant TbPeriod : time := 5 ns; -- ***EDIT*** Put right period here
     signal TbClock : std_logic := '0';
@@ -33,7 +39,9 @@ begin
     dut : breathing_led_top
     port map (clk => clk,
               sw  => sw,
-              led => led);
+              led => led,
+              seg => seg,
+              an  => an);
 
     -- Break out the bus into individual signals
     led0  <= led(0);
