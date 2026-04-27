@@ -1,6 +1,32 @@
+-- School:  Brno University of Technology FEEC
+-- Author(s):  Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-27
+-- Entity Name:     progress_bar
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica
+--
+-- Description: 
+--      Entity generating "pyramid" breathing effect on it's "led" output
+--      with modifiable 2-bit (max 7 seconds) "inhale_time" input. Uses a bus
+--      of 16 LEDs.
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
+--      ieee.numeric_std.all
+--      work.config.all
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+
+library work;
+use work.config.all;
 
 entity pyramid is
     port (
@@ -10,7 +36,7 @@ entity pyramid is
     );
 end entity pyramid;
 
-architecture behavioral of pyramid is
+architecture rtl of pyramid is
 
     component constant_pwm is
         port (
@@ -22,7 +48,7 @@ architecture behavioral of pyramid is
         );
     end component;
 
-    constant CLK_FREQ       : integer := 10_000;
+    constant CLK_FREQ       : integer := CLK_FREQ_HZ;
 
     type duty_array is array (0 to 7) of std_logic_vector(7 downto 0);
 
@@ -107,5 +133,5 @@ begin
         end if;
     end process;
 
-end architecture;
+end architecture rtl;
 

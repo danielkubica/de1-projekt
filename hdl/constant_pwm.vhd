@@ -1,4 +1,22 @@
--- Modul generujuci konstantny PWM signal podla intenzity zadanej v duty (0 - 255 bitov)
+-- School:  Brno University of Technology FEEC
+-- Author(s):  Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-27
+-- Entity Name:     constant_pwm
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica
+--
+-- Description: 
+--      Simple entity generating as output a constant PWM signal with a given duty.
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
+--      ieee.numeric_std.all
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -19,6 +37,7 @@ architecture rtl of constant_pwm is
     signal counter : unsigned(7 downto 0) := (others => '0');
 
 begin
+
     pwm_proc : process(clk)
     begin
         if rising_edge(clk) then

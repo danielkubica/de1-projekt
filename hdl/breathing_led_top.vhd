@@ -1,21 +1,44 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
+-- School:  Brno University of Technology FEEC
+-- Author(s):  Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-27
+-- Entity Name:     breathing_pwm 
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica
+--
+-- Description: 
+--      Top level entity for the project PWM Breathing LED. Synthesizeable on Nexys A7 50T FPGA board.
+--      User inputs via the bottom row of switches two 3-bit numbers (first and last three switches).
+--      One number setting the "mode" (breathing led, progress bar, pyramid, stars, or single led)
+--      and the other setting the "inhale time" (speed at which the various modes operate).
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
+--      ieee.numeric_std.all
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity breathing_led_top is
     Port ( 
-        clk                 : in std_logic;                      -- Hodinovy signal z dosky, 100MHz
-        sw                  : in std_logic_vector(15 downto 0);  -- Vektor switchov na doske, v architekture ich mapujeme na interne signali, iba tie ktore potrebujeme
-        led                 : out std_logic_vector(15 downto 0); -- Vystupna rada LEDiek
-        seg                 : out std_logic_vector(6 downto 0);
-        an                  : out std_logic_vector(7 downto 0)
+        clk     : in std_logic;                      -- Clock signal from the board: 100MHz
+        sw      : in std_logic_vector(15 downto 0);  -- Bus of switches on the board, in architecture we map only the ones we care about.
+        led     : out std_logic_vector(15 downto 0); -- Output bus of LEDs
+        seg     : out std_logic_vector(6 downto 0);  -- 7-segment display cathodes
+        an      : out std_logic_vector(7 downto 0)   -- 7-seg display anodes
     );
 end breathing_led_top;
 
-architecture Behavioral of breathing_led_top is
+architecture rtl of breathing_led_top is
 
-    signal mode_sw              : std_logic_vector(2 downto 0) := (others => '0'); -- Switche ktore ovladaju "mod" LEDiek
-    signal inhale_time_sw       : std_logic_vector(2 downto 0) := (others => '0'); -- Switche ktore ovladaju "cas nadychu" LEDiek
+    signal mode_sw              : std_logic_vector(2 downto 0) := (others => '0'); -- Switches controlling the "mode"
+    signal inhale_time_sw       : std_logic_vector(2 downto 0) := (others => '0'); -- Switches controlling the "inhale time"
 
     signal i_breathing_led      : std_logic;        
     signal i_progress_bar       : std_logic_vector(15 downto 0);
@@ -148,4 +171,4 @@ begin
             mux_output      => led
         );
      
-end Behavioral;
+end architecture rtl;

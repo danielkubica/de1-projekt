@@ -1,9 +1,31 @@
--- Modul generujuci "nadych/vydych" pomocou viacerych LEDiek, ktore vyzeraju ako 
--- "progress bar", rastuc a klesajuc. Cas nadychu definovany inhale_time
+-- School:  Brno University of Technology FEEC
+-- Author(s):  Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-27
+-- Entity Name:     progress_bar
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica
+--
+-- Description: 
+--      Entity generating "progress bar" breathing effect on it's "led" output
+--      with modifiable 2-bit (max 7 seconds) "inhale_time" input. Uses a bus of 16 LEDs.
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
+--      ieee.numeric_std.all
+--      work.config.all
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+
+library work;
+use work.config.all;
 
 entity progress_bar is
     port (
@@ -25,11 +47,10 @@ architecture rtl of progress_bar is
         );
     end component;
 
-    constant CLK_FREQ       : integer := 10_000;
+    constant CLK_FREQ       : integer := CLK_FREQ_HZ;
     -- Note: Since inhale_time is a port, you might want to multiply this 
     -- by inhale_time later, but for now we use the 1 second base.
     -- constant CYCLES_PER_LED : integer := CLK_FREQ / 16;
-
     
     type duty_array is array (0 to 15) of std_logic_vector(7 downto 0);
 
@@ -50,6 +71,7 @@ architecture rtl of progress_bar is
     signal inhale : boolean := true;
 
 begin
+
     cycles_per_led <= to_integer(inhale_time) * (CLK_FREQ / 16);
 
     gen_pwm: for i in 0 to 15 generate

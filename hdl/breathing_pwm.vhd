@@ -1,8 +1,31 @@
--- -- Modul generujuci "breathing" efekt PWM signal, ktoreho dlzka zavisi od inhale_time
+-- School:  Brno University of Technology FEEC
+-- Author(s):  Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-27
+-- Entity Name:     breathing_pwm 
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica
+--
+-- Description: 
+--      Entity generating a changing PWM signal, going through different levels of
+--      brightness if hooked up to an LED.
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
+--      ieee.numeric_std.all
+--      work.config.all
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+
+library work;
+use work.config.all;
 
 entity breathing_pwm is
     port (
@@ -12,10 +35,9 @@ entity breathing_pwm is
     );
 end entity breathing_pwm;
 
-architecture behavioral of breathing_pwm is
-    -- For Simulation: 10_000. For FPGA: 100_000_000
-    constant CLOCK_FREQ         : integer := 10_000; 
-    constant PWM_RESOLUTION     : integer := 100;    
+architecture rtl of breathing_pwm is
+    constant CLOCK_FREQ         : integer := CLK_FREQ_HZ; 
+    constant PWM_RESOLUTION     : integer := 100; -- Can be modified for more/less brightness levels
 
     -- PWM signals
     signal pwm_cnt              : integer range 0 to PWM_RESOLUTION - 1 := 0;
@@ -87,4 +109,4 @@ begin
         end if;
     end process p_breath;
 
-end architecture;
+end architecture rtl;

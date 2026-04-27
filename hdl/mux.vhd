@@ -1,15 +1,36 @@
+-- School:  Brno University of Technology FEEC
+-- Author(s):  Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-27
+-- Entity Name:     mux
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica
+--
+-- Description: 
+--      A simple 3-bit multiplexor selecting from different LED breathing modes (max 7)
+--      outputting one of them.
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
+--      ieee.numeric_std.all
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity mux is
     port (
-        mode                : in std_logic_vector(2 downto 0);
-        breathing_led       : in std_logic; 
-        progress_bar        : in std_logic_vector(15 downto 0);
-        pyramid             : in std_logic_vector(15 downto 0);
-        stars               : in std_logic_vector(15 downto 0);
-        mux_output          : out std_logic_vector(15 downto 0)
+        mode            : in std_logic_vector(2 downto 0);
+        breathing_led   : in std_logic; 
+        progress_bar    : in std_logic_vector(15 downto 0);
+        pyramid         : in std_logic_vector(15 downto 0);
+        stars           : in std_logic_vector(15 downto 0);
+        mux_output      : out std_logic_vector(15 downto 0)
     );
 end entity mux;
 

@@ -1,3 +1,23 @@
+-- School:  Brno University of Technology FEEC
+-- Author(s):  Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-27
+-- Entity Name:     stars
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica
+--
+-- Description: 
+--      Enity generating "stars" effect, or slowly breathing LEDs with different time offsets.
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
+--      ieee.numeric_std.all
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -9,7 +29,7 @@ entity stars is
     );
 end entity stars;
 
-architecture behavioral of stars is
+architecture rtl of stars is
     -- Create an array type to hold the speeds for 16 stars
     type speed_array is array (0 to 15) of unsigned(2 downto 0);
     signal star_speeds : speed_array := (others => "001");
@@ -50,4 +70,4 @@ begin
         end if;
     end process;
 
-end architecture;
+end architecture rtl;
