@@ -49,19 +49,19 @@ The user interface is designed for maximum simplicity using onboard components:
 
 ### How to Run the Project:
 
-**Windows/Vivado:**
-1. Use the provided vivado_project.xpr.zip project for the **Xilinx Vivado** IDE from the GitHub repository.
+**Vivado:**
+1. Use the provided vivado-project for the **Xilinx Vivado** IDE from the GitHub repository.
 2. You may need to adjust the maximum simulation time in Vivado settings tools -> settings -> simulation -> simulation (in the tabbed menu) -> xsim.simulate.runtime set to 4ms.
-3. For the actual implementation on the board, you have to change CLK_FREQ constant inside entity files to 100_000_000 (for simulation it's set to 10_000).
+3. For the actual implementation on the board, you have (un)comment the relevant constants in /hdl/config.vhd (change of clock frequency, etc.)
 4. Run synthesis, implementation, and bitstream generation.
 5. Upload the program to the board and use the switches to control speed and modes.
 
-**Linux/GHDL (Simulation only):**
+**GHDL+GTKWave (Simulation only):**
 1. Clone the GitHub repository to a local directory.
-2. Install **GHDL** and **GTKWave**, and ensure they are in your global PATH.
+2. Install **GHDL** and **GTKWave**, and ensure they are in your PATH.
 3. Navigate to the simulation folder (e.g., `cd ~/Downloads/pwm-breathing-led/sim`).
-5. In the Makefile, update the `TOP` variable to the name of the testbench you wish to simulate (e.g., `tb_breath_leds`).
-4. Build the project in the console using `make` and view the waveforms using `make view`.
+5. In the Makefile (Linux/Unix) or run.ps1 (Windows), update the `TOP` variable to the name of the testbench you wish to simulate (e.g., `tb_breath_leds`).
+4. Build the project in the console using `make` or running the `run.ps1` script and view the waveforms using `make view` or `run.ps1 view`.
 
 ## Block Diagram
 ![Breathing LED Block Diagram](/img/block_diagram.svg)
