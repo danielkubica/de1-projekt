@@ -10,10 +10,12 @@ architecture bench of tb_mux is
     -- Component Declaration
     component mux
         port (
-            mode          : in std_logic_vector(2 downto 0);
-            breathing_led : in std_logic;
-            progress_bar  : in std_logic_vector(15 downto 0);
-            mux_output    : out std_logic_vector(15 downto 0)
+            mode            : in std_logic_vector(2 downto 0);
+            breathing_led   : in std_logic; 
+            progress_bar    : in std_logic_vector(15 downto 0);
+            pyramid         : in std_logic_vector(15 downto 0);
+            stars           : in std_logic_vector(15 downto 0);
+            mux_output      : out std_logic_vector(15 downto 0)
         );
     end component;
 
@@ -31,6 +33,8 @@ begin
             mode          => mode,
             breathing_led => breathing_led,
             progress_bar  => progress_bar,
+            pyramid       => (others => '0'),
+            stars         => (others => '0'),
             mux_output    => mux_output
         );
 
