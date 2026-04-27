@@ -17,14 +17,14 @@ architecture tb of tb_display_driver is
               time_display : in std_logic_vector (6 downto 0);
               mode_display : in std_logic_vector (6 downto 0);
               seg_out      : out std_logic_vector (6 downto 0);
-              anode_out    : out unsigned (7 downto 0));
+              anode_out    : out std_logic_vector (7 downto 0));
     end component;
 
     signal clk          : std_logic;
     signal time_display : std_logic_vector (6 downto 0);
     signal mode_display : std_logic_vector (6 downto 0);
     signal seg_out      : std_logic_vector (6 downto 0);
-    signal anode_out    : unsigned (7 downto 0);
+    signal anode_out    : std_logic_vector (7 downto 0);
 
     constant TbPeriod : time := 5 ns; -- ***EDIT*** Put right period here
     signal TbClock : std_logic := '0';
