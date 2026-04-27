@@ -1,4 +1,4 @@
-# Project Repository for BPC-DE1 25/26L, Faculty of FEKT BUT
+# Project Repository for BPC-DE1 25/26L, Brno University of Technology FEEC
 
 Authors:
 - [Daniel Kubica](https://github.com/danielkubica) 
