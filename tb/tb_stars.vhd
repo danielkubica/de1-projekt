@@ -1,7 +1,21 @@
--- Testbench automatically generated online
--- at https://vhdl.lapinoo.net
--- Generation date : Fri, 17 Apr 2026 13:54:19 GMT
--- Request id : cfwk-fed377c2-69e23b8be4c62
+-- Institution:     Brno University of Technology FEEC
+-- Author(s):       Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-28
+-- Entity Name:     tb_stars
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica, Adam Koutny
+--
+-- Description: 
+--      Testbench file for the entity stars. Checks for the desired output.
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
 
 library ieee;
 use ieee.std_logic_1164.all;

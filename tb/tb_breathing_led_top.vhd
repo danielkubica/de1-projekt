@@ -1,7 +1,22 @@
--- Testbench automatically generated online
--- at https://vhdl.lapinoo.net
--- Generation date : Fri, 17 Apr 2026 11:26:22 GMT
--- Request id : cfwk-fed377c2-69e218dea5de9
+-- Institution:     Brno University of Technology FEEC
+-- Author(s):       Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-28
+-- Entity Name:     tb_breathing_led_top
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica, Adam Koutny
+--
+-- Description: 
+--      Testbench file for top level entity breathing_led_top. Runs through all the
+--      different modes of operation, with different inhale times.
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
 
 library ieee;
 use ieee.std_logic_1164.all;

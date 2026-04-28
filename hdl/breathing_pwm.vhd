@@ -1,5 +1,5 @@
--- School:  Brno University of Technology FEEC
--- Author(s):  Daniel Kubica, Adam Koutny
+-- Institution:     Brno University of Technology FEEC
+-- Author(s):       Daniel Kubica, Adam Koutny
 -- 
 -- Last Modified:   2026-04-27
 -- Entity Name:     breathing_pwm 
@@ -9,7 +9,7 @@
 --
 -- License:                 MIT
 -- SPDX-License-Identifier: MIT
--- Copyright (c) 2026 Daniel Kubica
+-- Copyright (c) 2026 Daniel Kubica, Adam Koutny
 --
 -- Description: 
 --      Entity generating a changing PWM signal, going through different levels of

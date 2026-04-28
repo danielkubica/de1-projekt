@@ -1,7 +1,23 @@
--- Testbench automatically generated online
--- at https://vhdl.lapinoo.net
--- Generation date : Sat, 18 Apr 2026 14:19:27 GMT
--- Request id : cfwk-fed377c2-69e392efc467a
+-- Institution:     Brno University of Technology FEEC
+-- Author(s):       Daniel Kubica, Adam Koutny
+-- 
+-- Last Modified:   2026-04-28
+-- Entity Name:     tb_display_driver
+-- Project:         PWM Breathing LED
+-- Target Devices:  Nexys A7 50T
+-- Project Page:    https://github.com/danielkubica/de1-projekt
+--
+-- License:                 MIT
+-- SPDX-License-Identifier: MIT
+-- Copyright (c) 2026 Daniel Kubica, Adam Koutny
+--
+-- Description: 
+--      Testbench file for the entity display_driver. Tests if the "multiplexing"
+--      of 7-seg display outputs work.
+--
+-- Dependencies: 
+--      ieee.std_logic_1164.all
+--      ieee.numeric_std.all
 
 library ieee;
 use ieee.std_logic_1164.all;
