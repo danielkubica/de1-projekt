@@ -56,12 +56,12 @@ The user interface is designed for maximum simplicity using onboard components:
 4. Run synthesis, implementation, and bitstream generation.
 5. Upload the program to the board and use the switches to control speed and modes.
 
-**GHDL+GTKWave (Simulation only):**
+**GHDL+Surfer/GTKWave (Simulation only):**
 1. Clone the GitHub repository to a local directory.
-2. Install **GHDL** and **GTKWave**, and ensure they are in your PATH.
+2. Install **[GHDL](https://ghdl.github.io/ghdl/getting.html#)** and **[Surfer](https://surfer-project.org/)** or **[GTKWave](https://sourceforge.net/projects/gtkwave/)**, and ensure they are in your PATH.
 3. Navigate to the simulation folder (e.g., `cd ~/Downloads/pwm-breathing-led/sim`).
-5. In the Makefile (Linux/Unix) or run.ps1 (Windows), update the `TOP` variable to the name of the testbench you wish to simulate (e.g., `tb_breath_leds`).
-4. Build the project in the console using `make` or running the `run.ps1` script and view the waveforms using `make view` or `run.ps1 view`.
+5. In the Makefile (Linux/Unix) or run_surfer.ps1 or run_gtkwave.ps1 (Windows), update the `TOP` variable to the name of the testbench you wish to simulate (e.g., `tb_breath_leds`).
+4. Build the project in the console using `make` or running the `run_surfer.ps1` or `run_gtkwave.ps1` script and view the waveforms using `make view` or `run_surfer.ps1 view` or `run_gtkwave.ps1 view`.
 
 ## Block Diagram
 ![Breathing LED Block Diagram](/img/block_diagram.svg)
