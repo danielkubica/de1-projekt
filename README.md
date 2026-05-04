@@ -14,7 +14,7 @@ The goal of this project is to create a "breathing" visual effect implemented on
 ### Key Features:
 
 * **Smooth LED Breathing:** LED brightness changes based on a PWM signal that mimics a triangle wave, simulating a natural inhale and exhale cycle. The inhale duration is adjustable.
-* **Spatial Inhale/Exhale:** Utilizes a row of 16 LEDs in four different modes that simulate breathing in various ways.
+* **Spatial Inhale/Exhale:** Utilizes a row of 16 LEDs in five different modes that simulate breathing in various ways.
 * **Adjustable Speed:** Using switches, the inhale time can be adjusted from 1s up to 7s.
 * **Visual Feedback:** The currently selected inhale time and mode are displayed in real-time on a seven-segment display.
 
@@ -26,7 +26,7 @@ The user interface is designed for maximum simplicity using onboard components:
 
 | Component | Function | Description |
 | :--- | :--- | :--- |
-| **Switches [M13, L16, J15]** | Speed Setting | A 3-bit number (0-7s) determining the cycle speed. |
+| **Switches [M13, L16, J15]** | Speed Setting | A 3-bit number determining the inhale time in seconds. |
 | **Switches [V10, V11, V12]** | Mode Setting | A 3-bit number determining the breathing display mode. |
 | **LED [15:0]** | Output Signal | Displays various breathing effects based on the selected mode. |
 | **7-seg Display** | Indicator | Displays the current inhale time (1s, 2s, 3s, etc.) and mode (0 - 7). |
@@ -51,17 +51,18 @@ The user interface is designed for maximum simplicity using onboard components:
 
 **Vivado:**
 1. Use the provided vivado-project for the **Xilinx Vivado** IDE from the GitHub repository.
-2. You may need to adjust the maximum simulation time in Vivado settings tools -> settings -> simulation -> simulation (in the tabbed menu) -> xsim.simulate.runtime set to 4ms.
-3. For the actual implementation on the board, you have (un)comment the relevant constants in /hdl/config.vhd (change of clock frequency, etc.)
-4. Run synthesis, implementation, and bitstream generation.
+2. For simulations, you may need to adjust the maximum simulation time in Vivado settings tools -> settings -> simulation -> simulation (in the tabbed menu) -> xsim.simulate.runtime set to 4ms.
+3. For the actual implementation on the board, you have to (un)comment the relevant constants in /hdl/config.vhd (change of clock frequency, etc.)
+4. For implementation, run synthesis, implementation, and bitstream generation.
 5. Upload the program to the board and use the switches to control speed and modes.
 
-**GHDL+Surfer/GTKWave (Simulation only):**
+**GHDL+Surfer/GTKWave (Simulations only):**
 1. Clone the GitHub repository to a local directory.
 2. Install **[GHDL](https://ghdl.github.io/ghdl/getting.html#)** and **[Surfer](https://surfer-project.org/)** or **[GTKWave](https://sourceforge.net/projects/gtkwave/)**, and ensure they are in your PATH.
-3. Navigate to the simulation folder (e.g., `cd ~/Downloads/pwm-breathing-led/sim`).
+3. Navigate to the simulation folder (e.g., `cd ~/Downloads/pwm-breathing-led/sim`) from a terminal.
 5. In the Makefile (Linux/Unix) or run_surfer.ps1 or run_gtkwave.ps1 (Windows), update the `TOP` variable to the name of the testbench you wish to simulate (e.g., `tb_breath_leds`).
 4. Build the project in the console using `make` or running the `run_surfer.ps1` or `run_gtkwave.ps1` script and view the waveforms using `make view` or `run_surfer.ps1 view` or `run_gtkwave.ps1 view`.
+(Note: The Makefile only works with GTKWave)
 
 ## Block Diagram
 ![Breathing LED Block Diagram](/img/block_diagram.svg)
@@ -85,8 +86,8 @@ Constant PWM signal simulation
 Top-level entity `breathing_led_top` simulation
 ![top_level_view](/img/signal_views_imgs/top_level_view.png)
 
-## Poster.
-<img src="/img/posterFINAL_1.1.2.pdf-1.png" alt="Poster image" width="50%">
+## Poster
+<img src="/img/posterFINAL_1.1.2.pdf-1.png" alt="Poster image" width="40%">
 
 ## Video demo
 [Breathing LED Controller (PWM)](https://youtu.be/PevhdQlrvZc)
