@@ -15,7 +15,7 @@ The goal of this project is to create a "breathing" visual effect implemented on
 
 * **Smooth LED Breathing:** LED brightness changes based on a PWM signal that mimics a triangle wave, simulating a natural inhale and exhale cycle. The inhale duration is adjustable.
 * **Spatial Inhale/Exhale:** Utilizes a row of 16 LEDs in four different modes that simulate breathing in various ways.
-* **Adjustable Speed:** Using switches, the inhale time can be adjusted from 1s up to 8s.
+* **Adjustable Speed:** Using switches, the inhale time can be adjusted from 1s up to 7s.
 * **Visual Feedback:** The currently selected inhale time and mode are displayed in real-time on a seven-segment display.
 
 ---
@@ -26,7 +26,7 @@ The user interface is designed for maximum simplicity using onboard components:
 
 | Component | Function | Description |
 | :--- | :--- | :--- |
-| **Switches [M13, L16, J15]** | Speed Setting | A 3-bit number (0-7 + 1) determining the cycle speed. |
+| **Switches [M13, L16, J15]** | Speed Setting | A 3-bit number (0-7s) determining the cycle speed. |
 | **Switches [V10, V11, V12]** | Mode Setting | A 3-bit number determining the breathing display mode. |
 | **LED [15:0]** | Output Signal | Displays various breathing effects based on the selected mode. |
 | **7-seg Display** | Indicator | Displays the current inhale time (1s, 2s, 3s, etc.) and mode (0 - 7). |
@@ -85,8 +85,8 @@ Constant PWM signal simulation
 Top-level entity `breathing_led_top` simulation
 ![top_level_view](/img/signal_views_imgs/top_level_view.png)
 
-## Poster, etc.
-:TODO
+## Poster.
+<img src="/img/posterFINAL_1.1.2.pdf-1.png" alt="Poster image" width="50%">
 
-## Video
-:TODO
+## Video demo
+[Breathing LED Controller (PWM)](https://youtu.be/PevhdQlrvZc)
