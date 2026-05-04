@@ -35,13 +35,13 @@ The user interface is designed for maximum simplicity using onboard components:
 
 ### Entity Functions and Details:
 
-- **constant_pwm entity:** Generates a constant PWM signal with a specified duty cycle (an 8-bit number representing 0 - 100%).
-- **breathing_pwm entity:** Generates a variable PWM signal with a specified inhale time, simulating inhale/exhale.
-- **progress_bar entity:** Generates a "progress bar" inhale/exhale effect using 16 LEDs.
-- **pyramid entity:** Generates a "pyramid" inhale/exhale effect using 16 LEDs. 
-- **stars entity:** Generates a "star" effect with 16 differently pulsing LEDs. 
-- **seg_decoder entity:** Decodes a 3-bit number (inhale time and mode) into a 7-bit signal representing the character for the 7-segment display. 
-- **display_driver entity:** To "simultaneously" display two different numbers on the Nexys A7 board, the numbers must be multiplexed in time. This entity handles that logic.
+- **[constant_pwm entity](/hdl/constant_pwm.vhd):** Generates a constant PWM signal with a specified duty cycle (an 8-bit number representing 0 - 100%).
+- **[breathing_pwm entity](/hdl/breathing_pwm.vhd):** Generates a variable PWM signal with a specified inhale time, simulating inhale/exhale.
+- **[progress_bar entity](/hdl/progress_bar.vhd):** Generates a "progress bar" inhale/exhale effect using 16 LEDs.
+- **[pyramid entity](/hdl/pyramid.vhd):** Generates a "pyramid" inhale/exhale effect using 16 LEDs. 
+- **[stars entity](/hdl/stars.vhd):** Generates a "star" effect with 16 differently pulsing LEDs. 
+- **[seg_decoder entity](/hdl/seg_decoder.vhd):** Decodes a 3-bit number (inhale time and mode) into a 7-bit signal representing the character for the 7-segment display. 
+- **[display_driver entity](/hdl/display_driver.vhd):** To "simultaneously" display two different numbers on the Nexys A7 board, the numbers must be multiplexed in time. This entity handles that logic.
 * **Timing Logic:** Switches define the inhale/exhale duration (1-7s).
 * **Implementation:** Developed in VHDL for Artix-7 FPGA (Nexys A7-50T/100T).
 
