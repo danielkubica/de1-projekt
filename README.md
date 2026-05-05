@@ -86,8 +86,13 @@ Constant PWM signal simulation
 Top-level entity `breathing_led_top` simulation
 ![top_level_view](/img/signal_views_imgs/top_level_view.png)
 
+# Resource Report
+![resource utilization](/img/resource_util.png)
+
+Utilization of resources after synthesis.
+
 ## Poster
 <img src="/img/posterFINAL_1.1.2.pdf-1.png" alt="Poster image" width="40%">
 
-## Video demo
+## Video Demo
 [Breathing LED Controller (PWM)](https://youtu.be/PevhdQlrvZc)
